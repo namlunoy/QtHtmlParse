@@ -7,7 +7,8 @@ QT += xml
 CONFIG += c++11
 
 SOURCES += main.cpp \
-        mytools.cpp
+        mytools.cpp \
+        textwork.cpp
 
 RESOURCES += qml.qrc
 
@@ -18,7 +19,8 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 HEADERS += \
-        mytools.h
+        mytools.h \
+    textwork.h
 
 DISTFILES += \
     test.html \

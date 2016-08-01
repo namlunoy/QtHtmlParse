@@ -7,6 +7,10 @@
 #include <QDebug>
 #include <QtXml>
 #include <QtCore>
+#include <sstream>
+#include "textwork.h"
+
+using namespace std;
 
 class MyTools : public QObject
 {

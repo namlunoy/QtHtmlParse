@@ -23,15 +23,29 @@ QString MyTools::getContent(QString fileName)
 
 QString MyTools::getResult(QString fileName)
 {
-    QString key = "<div class='mtq_question mtq_scroll_item-1'";
     QString result;
     QString content = getContent(fileName);
-    QStringList list = content.split(key);
+    QStringList list = TextWork::splitQuestion(content);
 
     for (int i = 1; i < 21; ++i) {
-        content = list[i];
-       qDebug() << content.split("'mtq_question_text'>")[1].split("</")[0];
+       QString questionSection = list[i];
+       QString q = TextWork::getQuestion(questionSection);
+       result += QString::number(i) + " - ";
+       result += q;
+       result += "\n";
 
+       QStringList a = TextWork::getAnswers(questionSection);
+       for(auto s : a)
+       {
+           result += s;
+           result += "\n";
+       }
+
+       QString ex = TextWork::getExplanation(questionSection);
+       result += ex;
+       result += "\n";
+
+       result += "\n";
     }
 
     return result;
